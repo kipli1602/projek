@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laporan Akhir - Admin</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        /* Gaya dari tabel_lap_akhir_admin.html */
+        /* Mengatur font default untuk seluruh halaman dan menghapus margin default */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+
+        /* Menghapus garis bawah default dari link */
+        a {
+            text-decoration: none;
+        }
+
+        /* Mengatur container utama untuk menggunakan flexbox dan mengisi seluruh tinggi viewport */
+        .custom-container {
+            display: flex;
+            height: 100vh;
+        }
+
+        /* Mengatur gambar di sidebar agar lebarnya 100% dari container-nya dan tinggi otomatis */
+        .custom-image {
+            width: 100%; 
+            height: auto;
+            margin-bottom: 40px;
+        }
+
+        /* Mengatur area konten utama */
+        .custom-main-content {
+            flex: 1; /* Mengisi sisa ruang yang tersedia */
+            padding: 20px;
+            position: relative; /* Diperlukan untuk positioning background-image */
+            background-image: url('Backround.png'); /* Gambar latar belakang */
+            background-repeat: no-repeat; /* Mencegah gambar latar berulang */
+            background-position: bottom right; /* Posisi gambar di kanan bawah */
+            background-size: 1500px auto; /* Ukuran gambar latar */
+            background-color: #fff; /* Warna latar belakang fallback */
+        }
+
+        /* Mengatur sidebar */
+        .custom-sidebar {
+            width: 250px; /* Lebar sidebar */
+            background-color: #fff;
+            padding: 20px 10px;
+            border-right: 1px solid #000; /* Garis batas di kanan */
+        }
+
+        /* Mengatur gaya link navigasi di sidebar */
+        .nav-link {
+            display: flex; /* Menggunakan flexbox untuk alignment ikon dan teks */
+            align-items: center; /* Menyelaraskan item secara vertikal */
+            padding: 8px 15px;
+            background-color: white;
+            border-radius: 8px; /* Sudut membulat */
+            color: #1988ff; /* Warna teks */
+            font-weight: bold; /* Teks tebal */
+            text-align: left; /* Teks rata kiri */
+            margin: 5px 0;
+            transition: all 0.3s ease; /* Transisi halus untuk hover effect */
+            cursor: pointer; /* Kursor berubah menjadi tangan */
+            font-size: 1rem;
+        }
+
+        /* Mengatur ikon di dalam link navigasi */
+        .nav-link i {
+            margin-right: 8px; /* Jarak antara ikon dan teks */
+            font-size: 1.2rem;
+            color: #000; /* Warna ikon default */
+        }
+
+        /* Gaya untuk link navigasi saat di-hover atau dalam keadaan aktif */
+        .nav-link:hover,
+        .nav-link.active,
+        .nav-link:hover i,
+        .nav-link.active i {
+            background-color: #1988ff; /* Warna latar berubah */
+            color: white; /* Warna teks dan ikon berubah */
+        }
+
+        /* Mengatur tombol dropdown kustom */
+        .custom-dropdown-toggle {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            padding: 8px 15px;
+            background-color: white;
+            color: #1988ff;
+            font-weight: bold;
+            font-size: 1rem;
+            border: none; /* Menghapus border */
+            border-radius: 8px;
+            text-align: left;
+            margin: 5px 0;
+            cursor: pointer;
+        }
+
+        /* Mengatur ikon di dalam tombol dropdown */
+        .custom-dropdown-toggle i {
+            margin-right: 8px;
+            font-size: 1.2rem;
+            color: #000000;
+        }
+
+        /* Gaya untuk tombol dropdown saat di-hover */
+        .custom-dropdown-toggle:hover,
+        .custom-dropdown-toggle:hover i {
+            background-color: #1988ff;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        /* Mengatur menu dropdown kustom */
+        .custom-dropdown-menu {
+            display: none; /* Disembunyikan secara default */
+            margin-left: 25px; /* Indentasi dari kiri */
+            margin-top: 5px;
+        }
+
+        /* Mengatur link di dalam menu dropdown */
+        .custom-dropdown-menu a {
+            display: block; /* Agar setiap link menempati satu baris penuh */
+            padding: 5px 0;
+            color: #1988ff;
+            font-weight: bold;
+            font-size: 0.95rem;
+        }
+
+        /* Gaya untuk link dropdown saat di-hover */
+        .custom-dropdown-menu a:hover {
+            color: white;
+            background-color: #1988ff;
+            border-radius: 8px;
+            padding-left: 10px; /* Menambah padding saat hover */
+            transition: all 0.3s ease;
+        }
+        
+        /* Mengatur ikon di dalam menu dropdown */
+        .custom-dropdown-menu i {
+            margin-right: 6px;
+            font-size: 1rem;
+            color: #000;
+        }
+        
+        /* Mengubah warna ikon di menu dropdown saat link di-hover */
+        .custom-dropdown-menu a:hover i {
+             color: white;
+        }
+
+        /* Mengatur header di konten utama */
+        .custom-header {
+            display: flex;
+            justify-content: flex-end; /* Konten rata kanan */
+            align-items: center;
+            font-size: 14px;
+            margin-bottom: 20px;
+            background: white;
+            padding: 15px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        /* Mengatur profil pengguna di header */
+        .custom-profile {
+            text-align: right;
+            font-family: "Roboto", Helvetica;
+            font-weight: 500;
+            color: #000000;
+            font-size: 20px;
+            position: relative;
+        }
+
+        /* Mengatur teks nama di profil */
+        .custom-profile span {
+            font-size: 24px;
+            font-weight: bold;
+            display: block;
+        }
+        
+        /* Mengatur gaya breadcrumb (jejak navigasi) */
+        .custom-breadcrumb {
+            color: #1988ff;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+
+        /* Gaya spesifik untuk halaman create (pembuatan/edit) */
+        /* Pembungkus untuk form */
+        .form-wrapper {
+            max-width: 100%;
+            width: 100%;
+        }
+
+        /* Mengatur label pada form group */
+        .form-group label {
+            font-weight: bold;
+            margin-bottom: 6px;
+        }
+
+        /* Mengatur tampilan input yang hanya bisa dibaca (readonly) */
+        .form-control:read-only, .form-control[readonly] {
+            background-color: #e9ecef;
+        }
+
+        /* Mengatur tombol "Kembali" */
+        .btn-kembali {
+            background-color: #747474;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 6px;
+            border: none;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        /* Mengatur tombol "Simpan" */
+        .btn-simpan {
+            background-color: #1988ff;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 6px;
+            border: none;
+            margin-left: 10px;
+            display: inline-block;
+        }
+
+        /* Mengatur gaya link download */
+        .text-download {
+            color: #1988ff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Menambahkan garis bawah pada link download saat di-hover */
+        .text-download:hover {
+            text-decoration: underline;
+        }
+
+        /* Mengatur ikon pada link download */
+        .text-download i {
+            margin-right: 5px;
+        }
+
+        /* Mengatur pesan error untuk validasi form */
+        .error-message {
+            color: red;
+            font-size: 0.875em;
+            margin-top: 0.25rem;
+        }
+        
+        /* Container untuk seluruh bagian komentar */
+        .comments-container {
+            display: flex;
+            flex-direction: column; /* Menumpuk item secara vertikal */
+            gap: 20px; /* Jarak antar item */
+            width: 100%;
+            margin-top: 20px;
+        }
+        
+        /* Container untuk komentar dari para reviewer */
+        .reviewers-comments {
+            display: flex;
+            gap: 20px; /* Jarak antara kotak komentar reviewer */
+            width: 100%;
+        }
+        
+        /* Kotak untuk setiap komentar individu */
+        .comment-box {
+            flex: 1; /* Setiap kotak mengambil ruang yang sama */
+            display: flex;
+            flex-direction: column;
+            min-width: 0; /* Mencegah overflow pada layout flex */
+        }
+        
+        /* Label di atas setiap kotak komentar (misal: "Komentar Reviewer 1") */
+        .comment-label {
+            border-radius: 6px;
+            padding: 8px 15px;
+            background-color: #D9D9D9;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        /* Konten aktual dari komentar */
+        .comment-content {
+            border: 1px solid #ced4da;
+            border-radius: 6px;
+            padding: 15px;
+            height: 150px;
+            overflow-y: auto; /* Menambahkan scrollbar jika kontennya panjang */
+            background-color: white;
+            width: 100%;
+        }
+        
+        /* Mengatur container untuk komentar admin */
+        .admin-comment {
+            width: 100%;
+        }
+        
+        /* Mengatur area teks (textarea) untuk komentar admin */
+        .admin-comment textarea {
+            width: 100%;
+            min-height: 150px;
+            border: 1px solid #ced4da;
+            border-radius: 6px;
+            padding: 15px;
+            resize: vertical; /* Memungkinkan pengguna mengubah tinggi textarea */
+        }
+
+        /* Mengatur container untuk tombol aksi di akhir form */
+        .action-buttons {
+            display: flex;
+            justify-content: flex-end; /* Tombol rata kanan */
+            margin-top: 20px;
+            gap: 10px; /* Jarak antar tombol */
+        }
+    </style>
+</head>
+<body>
+    <div class="custom-container">
+        <aside class="custom-sidebar">
+            <img src="logo.png" alt="Logo Astra" class="custom-image">
+            <nav class="nav flex-column w-100">
+                <a class="nav-link" href="#"><i class="fa fa-sign-out-alt"></i> Keluar</a>
+                <a class="nav-link" href="1.html"><i class="fa fa-home"></i> Dashboard</a>
+                <a class="nav-link" href="peneliti.html"><i class="fa fa-info-circle"></i> Informasi</a>
+
+                <div class="custom-dropdown">
+                    <a class="custom-dropdown-toggle"><i class="fa fa-chevron-down"></i> Master Data</a>
+                    <div class="custom-dropdown-menu">
+                        <a href="#"><i class="fa fa-minus"></i> Bobot Nilai</a>
+                        <a href="#"><i class="fa fa-minus"></i> Standar Penelitian</a>
+                        <a href="#"><i class="fa fa-minus"></i> Skema Penelitian</a>
+                    </div>
+                </div>
+
+                <a class="nav-link" href="#"><i class="fa fa-file-alt"></i> Penugasan Reviewer</a>
+                <a class="nav-link" href="#"><i class="fa fa-book"></i>Proposal</a>
+                <a class="nav-link" href="#"><i class="fa fa-chart-line"></i>Laporan Perkembangan</a>
+                <a class="nav-link active" href="tabel_lap_akhir_admin.html"><i class="fa fa-file-export"></i>Laporan Akhir</a>
+            </nav>
+        </aside>
+
+        <main class="custom-main-content">
+            <header class="custom-header">
+                <div class="custom-profile">
+                    <span>Alex (Admin) <i class="fa fa-envelope"></i></span>
+                </div>
+            </header>
+
+            <div class="custom-breadcrumb">Sistem Penelitian / Laporan Akhir</div>
+
+            <div class="form-wrapper">
+                <div class="row mb-3">
+                    <div class="col-md-7">
+                        <div class="form-group">
+                            <label>ID Laporan Akhir</label>
+                            <input type="text" id="idLaporan" class="form-control" value="LK/2025/001" readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <label for="statusAdmin">Status Admin</label>
+                            <select class="form-select" id="statusAdmin">
+                                <option selected disabled>Pilih Status</option>
+                                <option value="Diterima">Diterima</option>
+                                <option value="Ditolak">Ditolak</option>
+                            </select>
+                            <div id="status-admin-error" class="error-message" style="display: none;">Status Admin harus dipilih.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-7">
+                        <div class="form-group">
+                            <label>Dokumen Laporan Akhir:</label><br>
+                            <a href="LK_BudidayaKalimalang.pdf" download="Laporan Akhir - Budidaya Kalimalang.pdf" class="text-download">
+                                <i class="fa fa-download"></i> Unduh Dokumen
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <label>Status Reviewer</label>
+                            <p class="mb-0 pt-2">Diterima</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="comments-container">
+                    <div class="reviewers-comments">
+                        <div class="comment-box">
+                            <div class="comment-label">Komentar Reviewer 1 :</div>
+                            <div class="comment-content">
+                                Laporan akhir sudah disusun dengan baik dan sistematis, mengikuti struktur penulisan ilmiah yang tepat. Setiap bab tersusun secara logis dan saling berkaitan, mulai dari pendahuluan hingga kesimpulan. Selain itu, data pendukung yang disajikan sangat lengkap, relevan dengan topik penelitian, dan mampu memperkuat argumen yang disampaikan. Penggunaan metode penelitian juga dijelaskan secara rinci dan tepat sasaran, menunjukkan bahwa proses penelitian dilakukan secara terencana dan bertanggung jawab. Secara keseluruhan, laporan ini mencerminkan pemahaman yang baik terhadap materi serta kemampuan analisis yang kuat.
+                            </div>
+                        </div>
+                        <div class="comment-box">
+                            <div class="comment-label">Komentar Reviewer 2 :</div>
+                            <div class="comment-content">
+                                Laporan akhir sudah disusun dengan baik dan sistematis, mengikuti struktur penulisan ilmiah yang tepat. Setiap bab tersusun secara logis dan saling berkaitan, mulai dari pendahuluan hingga kesimpulan. Selain itu, data pendukung yang disajikan sangat lengkap, relevan dengan topik penelitian, dan mampu memperkuat argumen yang disampaikan. Penggunaan metode penelitian juga dijelaskan secara rinci dan tepat sasaran, menunjukkan bahwa proses penelitian dilakukan secara terencana dan bertanggung jawab. Secara keseluruhan, laporan ini mencerminkan pemahaman yang baik terhadap materi serta kemampuan analisis yang kuat.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="admin-comment">
+                        <div class="comment-label">Komentar Admin :</div>
+                        <textarea class="form-control" id="komentar-admin" rows="5" placeholder="Masukkan komentar admin di sini..."></textarea>
+                        <small id="komentar-error" class="error-message" style="display: none;">Komentar admin wajib diisi.</small>
+                    </div>
+                </div>
+
+                <div class="mt-4">
+                    <a href="tabel_lap_akhir_admin.html" class="btn-kembali">Kembali</a>
+                    <button type="button" class="btn-simpan">Simpan</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div class="modal fade" id="konfirmasiSimpanModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Konfirmasi Penyimpanan</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Apakah Anda yakin ingin menyimpan perubahan ini?</p>
+                    <p>Status laporan akan disimpan sebagai <strong>Draft</strong>.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                    <a href="tabel_setelah_simpan.html" class="btn btn-primary">Simpan</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Menjalankan script setelah seluruh konten DOM (HTML) selesai dimuat
+        document.addEventListener('DOMContentLoaded', function() {
+            // Logika untuk fungsionalitas dropdown di sidebar
+            document.querySelectorAll('.custom-dropdown-toggle').forEach(button => {
+                // Menambahkan event listener 'click' pada setiap tombol dropdown
+                button.addEventListener('click', function (event) {
+                    event.preventDefault(); // Mencegah aksi default dari tag 'a'
+                    const menu = this.nextElementSibling; // Mengambil elemen menu dropdown berikutnya
+                    // Mengubah properti display untuk menampilkan atau menyembunyikan menu
+                    menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+                });
+            });
+
+            // Logika untuk menutup dropdown ketika pengguna mengklik di luar area dropdown
+            window.addEventListener('click', function (e) {
+                document.querySelectorAll('.custom-dropdown-menu').forEach(menu => {
+                    const toggle = menu.previousElementSibling; // Tombol toggle dari menu ini
+                    // Jika klik bukan pada tombol toggle dan bukan pada menu itu sendiri
+                    if (!toggle.contains(e.target) && !menu.contains(e.target)) {
+                        menu.style.display = 'none'; // Sembunyikan menu
+                    }
+                });
+            });
+            
+            // Logika untuk validasi form dan menampilkan modal konfirmasi
+            // Mengambil elemen-elemen yang diperlukan dari DOM
+            const simpanButton = document.querySelector('.btn-simpan');
+            const konfirmasiModal = new bootstrap.Modal(document.getElementById('konfirmasiSimpanModal')); // Inisialisasi modal Bootstrap
+            const statusAdminSelect = document.getElementById('statusAdmin');
+            const statusAdminError = document.getElementById('status-admin-error');
+            const komentarArea = document.getElementById('komentar-admin');
+            const komentarError = document.getElementById('komentar-error');
+
+            // Menambahkan event listener 'click' pada tombol "Simpan"
+            simpanButton.addEventListener('click', function(e) {
+                e.preventDefault(); // Mencegah form dari submit default
+                let isValid = true; // Flag untuk melacak status validasi
+
+                // Validasi pertama: Cek apakah status admin sudah dipilih
+                if (statusAdminSelect.value === 'Pilih Status') {
+                    statusAdminError.style.display = 'block'; // Tampilkan pesan error
+                    isValid = false; // Tandai form sebagai tidak valid
+                } else {
+                    statusAdminError.style.display = 'none'; // Sembunyikan pesan error
+                }
+
+                // Validasi kedua: Cek apakah komentar admin sudah diisi
+                if (komentarArea.value.trim() === '') {
+                    komentarError.style.display = 'block'; // Tampilkan pesan error
+                    isValid = false; // Tandai form sebagai tidak valid
+                } else {
+                    komentarError.style.display = 'none'; // Sembunyikan pesan error
+                }
+
+                // Jika semua validasi berhasil (isValid tetap true)
+                if (isValid) {
+                    konfirmasiModal.show(); // Tampilkan modal konfirmasi
+                }
+            });
+        });
+    </script>
+</body>
+</html>

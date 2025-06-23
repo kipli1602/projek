@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard ASTRAtech</title>
+    <link rel="icon" href="logo astra.png" type="image/png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <style>
+
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: url('Background.png') no-repeat center center fixed;
+}
+
+a {
+    text-decoration: none;
+}
+
+.custom-container {
+    display: flex;
+    height: 100vh;
+}
+
+.custom-image {
+    width: 100%; 
+    height: auto;
+    margin-bottom: 40px;
+}
+
+.custom-main-content {
+    flex: 1;
+    padding: 20px;
+    position: relative;
+    background-image: url('Backround.png');
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    background-size: 1500px auto;
+}
+
+.custom-sidebar {
+      width: 250px;
+      background-color: #fff;
+      padding: 20px 10px;
+      border-right: 1px solid #000;
+    }
+
+    .nav-link {
+      display: block;
+      padding: 8px 15px;
+      background-color: white;
+      border-radius: 8px;
+      color: #1988ff;
+      font-weight: bold;
+      text-align: left;
+      margin: 5px 0;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .nav-link i {
+      margin-right: 8px;
+      font-size: 1.2rem;
+      color: #000;
+    }
+
+    .nav-link:hover,
+    .nav-link:hover i {
+      background-color: #1988ff;
+      color: white;
+    }
+
+    .custom-dropdown-toggle {
+      display: block;
+      padding: 8px 15px;
+      background-color: white;
+      color: #1988ff;
+      font-weight: bold;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      text-align: left;
+      margin: 5px 0;
+      cursor: pointer;
+    }
+
+    .custom-dropdown-toggle i {
+      margin-right: 8px;
+      font-size: 1.2rem;
+      color: #000000;
+    }
+
+    .custom-dropdown-toggle:hover,
+    .custom-dropdown-toggle:hover i {
+    background-color: #1988ff;
+    color: white;
+    transition: all 0.3s ease;
+    }
+
+
+    .custom-dropdown-menu {
+      display: none;
+      margin-left: 25px;
+      margin-top: 5px;
+    }
+
+    .custom-dropdown-menu a {
+      display: block;
+      padding: 5px 0;
+      color: #1988ff;
+      font-weight: bold;
+      font-size: 0.95rem;
+    }
+
+    .custom-dropdown-menu :hover{
+      color: white;
+      background-color: #1988ff;
+      border-radius: 8px;
+      padding-left: 10px;
+      transition: all 0.3s ease;
+    }
+
+    .custom-dropdown-menu a:hover i {
+      color: white;
+      border-radius: 8px;
+      padding-left: 10px;
+      transition: all 0.3s ease;
+    }
+
+ 
+    .custom-dropdown-menu i {
+      margin-right: 6px;
+      font-size: 1rem;
+      color: #000;
+    }
+
+.custom-breadcrumb {
+    color: #1988ff;
+}
+
+.custom-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    margin-bottom: 20px;
+    background: white;
+    padding: 15px;
+    border-bottom: 1px solid #ccc;
+}
+
+.custom-profile {
+    text-align: right;
+    font-family: "Roboto", Helvetica;
+    font-weight: 500;
+    color: #000000;
+    font-size: 20px;
+    position: relative;
+    margin-left: auto;
+}
+
+.custom-profile span {
+    font-size: 24px;
+    font-weight: bold;
+    display: block;
+}
+
+.custom-notification-dot {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    width: 14px;
+    height: 14px;
+    background-color: red;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+.cari {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    flex-direction: row;
+    padding-bottom: 10px;
+}
+
+.custom-border-lap-akhir thead, th {
+    background-color: rgb(224, 222, 222) !important;
+}
+
+</style>
+
+</head>
+<body>
+    <div class="custom-container">
+        <aside class="custom-sidebar">
+            <img src="logo.png" alt="Logo Astra" class="custom-image">
+            <nav class="nav flex-column w-100">
+                <a class="nav-link" href="#"><i class="fa fa-sign-out-alt"></i> Keluar</a>
+                <a class="nav-link" href="#"><i class="fa fa-home"></i> Dashboard</a>
+                <a class="nav-link" href="#"><i class="fa fa-info-circle"></i> Informasi</a>
+
+                <div class="custom-dropdown">
+                    <a class="custom-dropdown-toggle"><i class="fa fa-chevron-down"></i> Master Data</a>
+                    <div class="custom-dropdown-menu">
+                        <a href="#"><i class="fa fa-minus"></i> Bobot Nilai</a>
+                        <a href="#"><i class="fa fa-minus"></i> Standar Penelitian</a>
+                        <a href="#"><i class="fa fa-minus"></i> Skema Penelitian</a>
+                    </div>
+                </div>
+
+                <a class="nav-link" href="#"><i class="fa fa-file-alt"></i> Penugasan Reviewer</a>
+                <a class="nav-link" href="#"><i class="fa fa-book"></i>Proposal</a>
+                <a class="nav-link" href="#"><i class="fa fa-chart-line"></i>Laporan Perkembangan</a>
+                <a class="nav-link" href="#"><i class="fa fa-file-export"></i>Laporan Akhir</a>
+            </nav>
+        </aside>
+
+        <main class="custom-main-content">
+            <header class="custom-header">
+                <div class="custom-profile">
+                    <span>Alex (Admin)<i class="fa fa-envelope"></i><span class="custom-notification-dot"></span></span>
+                </div>
+            </header>
+            
+             <div class="custom-breadcrumb" style="padding-bottom: 10px;">Sistem Penelitian / Dashboard</div>
+
+            <div class="cari">
+                <a href="createBobot.html" class="btn btn-success btn-sm rounded-2" style="width: 11%; height: 36px; font-size: 15px; font-weight: bold; background-color: rgb(25, 183, 25); display: flex; align-items: center;">
+                <i class="bi bi-plus-circle me-2" ></i> Tambah</a>
+                <input type="text" class="form-control" placeholder="Cari" aria-label="Cari" aria-describedby="button-addon2" style="width: 90%;">
+                <button class="btn btn-outline-secondary" type="button" id="button-addon2" style="background-color: rgb(65, 121, 241);"><i class="fa-solid fa-magnifying-glass" style="color: black;"></i></button>
+            </div>
+
+           <div class="border border-dark border-1 rounded-3 overflow-hidden  " >
+                <table class="table table-hover tabel-bordered mb-0 custom-tabel-lap-akhir" >
+                <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Nama Informasi</th>
+                    <th>Tanggal Dibuat</th>
+                    <th>Tanggal Dibah</th>
+                    <th>Aksi</th>
+                </tr>
+                </thead>
+                <tbody>
+                
+                    <tr>
+                        <td>1</td>
+                        <td>Buku Panduan Penelitian 2025</td>
+                        <td>06-Mar-2024</td>
+                        <td>06-Mar-2024</td>
+                        <td>
+                            <a href="readBobot.html" style="color: black; padding:3px; border:none; background:none; cursor:pointer; display:inline-block;">
+                        <i class="bi bi-book"></i>
+                        </a>
+
+                            <a href="createBobot.html" style="color: black; padding:3px; border:none; background:none; cursor:pointer; display:inline-block;">
+                                <i class="bi bi-pencil-square"></i>
+                            </a>
+
+                            <button type="button" style="padding:3px; border:none; background:none;" 
+                                    data-bs-toggle="modal" data-bs-target="#konfirmasiModal">
+                            <i class="bi bi-send"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+                </table>
+            </div>
+
+           
+            <div class="modal fade" id="konfirmasiModal" tabindex="-1" aria-labelledby="konfirmasiModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="konfirmasiModalLabel">Konfirmasi Laporan Akhir</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+                    </div>
+                    <div class="modal-body">
+                        Apakah anda sudah yakin?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Oke</button>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+
+
+            <div>
+                <nav aria-label="...">
+                <ul class="pagination" style="padding-top: 15px;">
+                    <li class="page-item ">
+                        <a class="page-link" >Sebelumnya</a>
+                    </li>
+                    <li class="page-item active">
+                        <a class="page-link" href="#" aria-current="page">2</a>
+                    </li>
+                    <li class="page-item ">
+                        <a class="page-link" href="#">Selanjutnya</a>
+                    </li>
+                </ul>
+                </nav>
+            </div>
+          
+        </main>
+    </div>
+
+   
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.querySelectorAll('.custom-dropdown-toggle').forEach(button => {
+            button.addEventListener('click', function () {
+                const menu = this.nextElementSibling;
+                menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+            });
+        });
+
+        // Menutup dropdown saat klik di luar
+        window.addEventListener('click', function (e) {
+            document.querySelectorAll('.custom-dropdown-menu').forEach(menu => {
+                if (!menu.previousElementSibling.contains(e.target) && !menu.contains(e.target)) {
+                    menu.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

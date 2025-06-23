@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Contoh Position CSS</title>
+  <style>
+    body {
+      height: 2000px; /* biar bisa scroll */
+      margin: 0;
+      font-family: sans-serif;
+    }
+
+    .box {
+      width: 200px;
+      height: 100px;
+      color: white;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+
+    .static {
+      background: purple;
+      position: static;
+    
+    }
+
+    .relative {
+      background: orange;
+      position: relative;
+      top: 0px;
+      left: 100px;
+    }
+
+    .absolute-container {
+      position: relative;
+      background: #eee;
+      height: 150px;
+      margin-bottom: 30px;
+      border: 2px dashed black;
+    }
+
+    .absolute {
+      background: red;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+
+    .fixed {
+      background: green;
+      position: fixed;
+      top: 0px;
+      left: 0;
+      
+    }
+
+    .sticky {
+      background: blue;
+      position: sticky;
+      top: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="box static">🔘 Static (default)</div>
+
+  <div class="box relative">🟢 Relative (geser 20px dari posisi asli)</div>
+
+  <div class="absolute-container">
+    <div class="box absolute">🔴 Absolute (pojok atas container)</div>
+  </div>
+
+  <div class="box fixed">🟡 Fixed (selalu di pojok atas layar)</div>
+
+  <div style="height: 1000px;">
+    <div class="box sticky">🔵 Sticky (nempel atas saat scroll)</div>
+    <p>Scroll ke bawah dan lihat "Sticky" tetap nempel atas saat melewatinya.</p>
+  </div>
+
+  <div style="position: absolute; z-index: 1; background: red;">Merah</div>
+<div style="position: absolute; z-index: 10; background: blue;">Biru</div>
+
+
+</body>
+</html>

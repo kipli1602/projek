@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Laporan Akhir - Admin</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        /* Gaya dari tabel_lap_akhir_admin.html */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .custom-container {
+            display: flex;
+            height: 100vh;
+        }
+
+        .custom-image {
+            width: 100%; 
+            height: auto;
+            margin-bottom: 40px;
+        }
+
+        .custom-main-content {
+            flex: 1;
+            padding: 20px;
+            position: relative;
+            background-image: url('Backround.png');
+            background-repeat: no-repeat;
+            background-position: bottom right;
+            background-size: 1500px auto;
+            background-color: #fff;
+        }
+
+        .custom-sidebar {
+            width: 250px;
+            background-color: #fff;
+            padding: 20px 10px;
+            border-right: 1px solid #000;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            padding: 8px 15px;
+            background-color: white;
+            border-radius: 8px;
+            color: #1988ff;
+            font-weight: bold;
+            text-align: left;
+            margin: 5px 0;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .nav-link i {
+            margin-right: 8px;
+            font-size: 1.2rem;
+            color: #000;
+        }
+
+        .nav-link:hover,
+        .nav-link.active,
+        .nav-link:hover i,
+        .nav-link.active i {
+            background-color: #1988ff;
+            color: white;
+        }
+
+        .custom-dropdown-toggle {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            padding: 8px 15px;
+            background-color: white;
+            color: #1988ff;
+            font-weight: bold;
+            font-size: 1rem;
+            border: none;
+            border-radius: 8px;
+            text-align: left;
+            margin: 5px 0;
+            cursor: pointer;
+        }
+
+        .custom-dropdown-toggle i {
+            margin-right: 8px;
+            font-size: 1.2rem;
+            color: #000000;
+        }
+
+        .custom-dropdown-toggle:hover,
+        .custom-dropdown-toggle:hover i {
+            background-color: #1988ff;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .custom-dropdown-menu {
+            display: none;
+            margin-left: 25px;
+            margin-top: 5px;
+        }
+
+        .custom-dropdown-menu a {
+            display: block;
+            padding: 5px 0;
+            color: #1988ff;
+            font-weight: bold;
+            font-size: 0.95rem;
+        }
+
+        .custom-dropdown-menu a:hover {
+            color: white;
+            background-color: #1988ff;
+            border-radius: 8px;
+            padding-left: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .custom-dropdown-menu i {
+            margin-right: 6px;
+            font-size: 1rem;
+            color: #000;
+        }
+
+        .custom-dropdown-menu a:hover i {
+             color: white;
+        }
+        
+        .custom-header {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            font-size: 14px;
+            margin-bottom: 20px;
+            background: white;
+            padding: 15px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .custom-profile {
+            text-align: right;
+            font-family: "Roboto", Helvetica;
+            font-weight: 500;
+            color: #000000;
+            font-size: 20px;
+            position: relative;
+        }
+        
+        .custom-profile span {
+            font-size: 24px;
+            font-weight: bold;
+            display: block;
+        }
+
+        .custom-breadcrumb {
+            color: #1988ff;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+
+        /* Gaya spesifik untuk halaman read */
+        .form-wrapper {
+            max-width: 100%;
+            width: 100%;
+        }
+        .form-group label {
+            font-weight: bold;
+            margin-bottom: 6px;
+        }
+        .form-control[readonly] {
+            background-color: #e9ecef;
+        }
+        .btn-kembali {
+            background-color: #747474;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 6px;
+            border: none;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .text-download {
+            color: #1988ff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .text-download:hover {
+            text-decoration: underline;
+        }
+        .text-download i {
+            margin-right: 5px;
+        }
+        .comments-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 100%;
+            margin-top: 20px;
+        }
+        .reviewers-comments {
+            display: flex;
+            gap: 20px;
+            width: 100%;
+        }
+        .comment-box {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+        }
+        .comment-label {
+            border-radius: 6px;
+            padding: 8px 15px;
+            background-color: #D9D9D9;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .comment-content {
+            border: 1px solid #ced4da;
+            border-radius: 6px;
+            padding: 15px;
+            height: 150px;
+            overflow-y: auto;
+            background-color: #fff;
+            width: 100%;
+        }
+        .admin-comment {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="custom-container">
+        <aside class="custom-sidebar">
+            <img src="logo.png" alt="Logo Astra" class="custom-image">
+            <nav class="nav flex-column w-100">
+                <a class="nav-link" href="#"><i class="fa fa-sign-out-alt"></i> Keluar</a>
+                <a class="nav-link" href="1.html"><i class="fa fa-home"></i> Dashboard</a>
+                <a class="nav-link" href="peneliti.html"><i class="fa fa-info-circle"></i> Informasi</a>
+
+                <div class="custom-dropdown">
+                    <a class="custom-dropdown-toggle"><i class="fa fa-chevron-down"></i> Master Data</a>
+                    <div class="custom-dropdown-menu">
+                        <a href="#"><i class="fa fa-minus"></i> Bobot Nilai</a>
+                        <a href="#"><i class="fa fa-minus"></i> Standar Penelitian</a>
+                        <a href="#"><i class="fa fa-minus"></i> Skema Penelitian</a>
+                    </div>
+                </div>
+
+                <a class="nav-link" href="#"><i class="fa fa-file-alt"></i> Penugasan Reviewer</a>
+                <a class="nav-link" href="#"><i class="fa fa-book"></i>Proposal</a>
+                <a class="nav-link" href="#"><i class="fa fa-chart-line"></i>Laporan Perkembangan</a>
+                <a class="nav-link active" href="tabel_lap_akhir_admin.html"><i class="fa fa-file-export"></i>Laporan Akhir</a>
+            </nav>
+        </aside>
+
+        <main class="custom-main-content">
+            <header class="custom-header">
+                <div class="custom-profile">
+                    <span>Alex (Admin) <i class="fa fa-envelope"></i></span>
+                </div>
+            </header>
+
+            <div class="custom-breadcrumb">Sistem Penelitian / Detail Laporan Akhir</div>
+
+            <div class="form-wrapper">
+                <div class="row mb-3">
+                    <div class="col-md-7">
+                        <div class="form-group">
+                            <label>ID Laporan Akhir</label>
+                            <input type="text" class="form-control" value="LK/2025/002" readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <label>Status Admin</label>
+                            <p class="pt-2">Diterima</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-7">
+                        <div class="form-group">
+                            <label>Dokumen Laporan Akhir:</label><br>
+                            <a href="LK_BudidayaKalimalang.pdf" download="Laporan Akhir - Budidaya Kalimalang.pdf" class="text-download">
+                                <i class="fa fa-download"></i> Unduh Dokumen
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <label>Status Reviewer</label>
+                            <p class="pt-2">Diterima</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="comments-container">
+                    <div class="reviewers-comments">
+                        <div class="comment-box">
+                            <div class="comment-label">Komentar Reviewer 1 :</div>
+                            <div class="comment-content">
+                                Laporan akhir sudah disusun dengan baik dan sistematis, mengikuti struktur penulisan ilmiah yang tepat. Setiap bab tersusun secara logis dan saling berkaitan, mulai dari pendahuluan hingga kesimpulan. Selain itu, data pendukung yang disajikan sangat lengkap, relevan dengan topik penelitian, dan mampu memperkuat argumen yang disampaikan. Penggunaan metode penelitian juga dijelaskan secara rinci dan tepat sasaran, menunjukkan bahwa proses penelitian dilakukan secara terencana dan bertanggung jawab. Secara keseluruhan, laporan ini mencerminkan pemahaman yang baik terhadap materi serta kemampuan analisis yang kuat.
+                            </div>
+                        </div>
+                        <div class="comment-box">
+                            <div class="comment-label">Komentar Reviewer 2 :</div>
+                            <div class="comment-content">
+                                Laporan akhir sudah disusun dengan baik dan sistematis, mengikuti struktur penulisan ilmiah yang tepat. Setiap bab tersusun secara logis dan saling berkaitan, mulai dari pendahuluan hingga kesimpulan. Selain itu, data pendukung yang disajikan sangat lengkap, relevan dengan topik penelitian, dan mampu memperkuat argumen yang disampaikan. Penggunaan metode penelitian juga dijelaskan secara rinci dan tepat sasaran, menunjukkan bahwa proses penelitian dilakukan secara terencana dan bertanggung jawab. Secara keseluruhan, laporan ini mencerminkan pemahaman yang baik terhadap materi serta kemampuan analisis yang kuat.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="admin-comment">
+                        <div class="comment-label">Komentar Admin :</div>
+                        <div class="comment-content">
+                            Laporan akhir sudah disusun dengan baik dan sistematis, mengikuti struktur penulisan ilmiah yang tepat. Setiap bab tersusun secara logis dan saling berkaitan, mulai dari pendahuluan hingga kesimpulan. Selain itu, data pendukung yang disajikan sangat lengkap, relevan dengan topik penelitian, dan mampu memperkuat argumen yang disampaikan. Penggunaan metode penelitian juga dijelaskan secara rinci dan tepat sasaran, menunjukkan bahwa proses penelitian dilakukan secara terencana dan bertanggung jawab. Secara keseluruhan, laporan ini mencerminkan pemahaman yang baik terhadap materi serta kemampuan analisis yang kuat.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-4">
+                    <a href="tabel_setelah_simpan.html" class="btn-kembali">Kembali</a>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Dropdown logic
+            document.querySelectorAll('.custom-dropdown-toggle').forEach(button => {
+                button.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    const menu = this.nextElementSibling;
+                    menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+                });
+            });
+
+            // Close dropdown when clicking outside
+            window.addEventListener('click', function (e) {
+                document.querySelectorAll('.custom-dropdown-menu').forEach(menu => {
+                    const toggle = menu.previousElementSibling;
+                    if (!toggle.contains(e.target) && !menu.contains(e.target)) {
+                        menu.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

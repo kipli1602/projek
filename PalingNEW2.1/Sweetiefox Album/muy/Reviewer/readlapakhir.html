@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Review Laporan Akhir</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f9f9f9;
+}
+
+a {
+    text-decoration: none;
+}
+
+.custom-container {
+    display: flex;
+    height: 100vh;
+}
+
+.custom-image {
+    width: 100%; 
+    height: auto;
+    margin-bottom: 40px;
+}
+
+.custom-main-content {
+    flex: 1;
+    padding: 20px;
+    position: relative;
+    background-image: url('Backround.png');
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    background-size: 1500px auto;
+    margin-left: 250px; /* Biar gak ketiban sidebar */
+    padding: 20px; 
+}
+
+.custom-sidebar {
+    width: 250px;
+    background-color: rgb(255, 255, 255);
+    padding: 20px 10px;
+    border-right: 1px solid #000000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    overflow-y: auto;
+    z-index: 1000;
+}
+
+.custom-btn {
+    display: block;
+    width: 100%;
+    padding: 5px;
+    background-color: white;
+    border: 3px solid #1988ff;
+    border-radius: 8px;
+    color: #1988ff;
+    font-weight: bold;
+    text-align: left;
+    margin: 5px 0;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+    .nav-link {
+      display: block;
+      padding: 8px 15px;
+      background-color: white;
+      border-radius: 8px;
+      color: #1988ff;
+      font-weight: bold;
+      text-align: left;
+      margin: 5px 0;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .nav-link i {
+      margin-right: 8px;
+      font-size: 1.2rem;
+      color: #000;
+    }
+
+    .nav-link:hover,
+    .nav-link:hover i {
+      background-color: #1988ff;
+      color: white;
+    }
+
+     .custom-dropdown-toggle {
+      display: block;
+      padding: 8px 15px;
+      background-color: white;
+      color: #1988ff;
+      font-weight: bold;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      text-align: left;
+      margin: 5px 0;
+      cursor: pointer;
+    }
+
+    .custom-dropdown-toggle i {
+      margin-right: 8px;
+      font-size: 1.2rem;
+      color: #000000;
+    }
+
+    .custom-dropdown-toggle:hover,
+    .custom-dropdown-toggle:hover i {
+    background-color: #1988ff;
+    color: white;
+    transition: all 0.3s ease;
+    }
+
+
+    .custom-dropdown-menu {
+      display: none;
+      margin-left: 25px;
+      margin-top: 5px;
+    }
+
+    .custom-dropdown-menu a {
+      display: block;
+      padding: 5px 0;
+      color: #1988ff;
+      font-weight: bold;
+      font-size: 0.95rem;
+    }
+
+    .custom-dropdown-menu :hover{
+      color: white;
+      background-color: #1988ff;
+      border-radius: 8px;
+      padding-left: 10px;
+      transition: all 0.3s ease;
+    }
+
+    .custom-dropdown-menu a:hover i {
+      color: white;
+      border-radius: 8px;
+      padding-left: 10px;
+      transition: all 0.3s ease;
+    }
+
+ 
+    .custom-dropdown-menu i {
+      margin-right: 6px;
+      font-size: 1rem;
+      color: #000;
+    }
+    
+    .custom-breadcrumb {
+            color: #1988ff;
+    }
+
+.custom-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    margin-bottom: 20px;
+    background: white;
+    padding: 15px;
+    border-bottom: 1px solid #ccc;
+}
+
+.cari {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    flex-direction: row;
+    padding-bottom: 10px;
+}
+
+.custom-profile {
+    text-align: right;
+    font-family: "Roboto", Helvetica;
+    font-weight: 500;
+    color: #000000;
+    font-size: 20px;
+    position: relative;
+    margin-left: auto;
+}
+
+.custom-profile span {
+    font-size: 24px;
+    font-weight: bold;
+    display: block;
+}
+
+.custom-notification-dot {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    width: 14px;
+    height: 14px;
+    background-color: red;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+.laporan-header {
+    background-color: #D9D9D9;
+    padding: 4px 12px;             
+    border-radius: 10px 8px 0 0;
+    font-size: 13px;                
+}
+
+.laporan-header h3 {
+    font-size: 14px;                
+    font-weight: bold;             
+    margin: 0;                     
+    padding: 4px 0;                
+}
+
+.form-container {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.text-download {
+    color: #1988ff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.text-download:hover {
+    text-decoration: underline;
+}
+
+.btn-simpan {
+    padding: 8px 20px;
+    background-color: #107ACC;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-simpan:hover {
+    background-color: #1d67a0;
+}
+
+.btn-kembali {
+    padding: 8px 20px;
+    background-color: #747474;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-kembali:hover {
+    background-color: #ada8a8;
+}
+
+.file-info {
+    display: block;
+    margin-top: 5px;
+    color: #666;
+    font-size: 12px;
+}
+</style>
+</head>
+<body>
+<div class="custom-container">
+    <aside class="custom-sidebar">
+        <img class="custom-image" src="logo.png" />
+        <a class="nav-link" href="#"><i class="fa fa-sign-out-alt"></i> Keluar</a>
+        <a class="nav-link" href="reviewer.html"><i class="fa fa-home"></i> Dashboard</a>
+        <a class="nav-link" href="#"><i class="fa fa-info-circle"></i> Informasi</a>
+        <a class="nav-link" href="#"><i class="fa-solid fa-user-pen"></i> Penugasan</a>
+        <div class="custom-dropdown">
+            <a class="custom-dropdown-toggle"><i class="fa fa-chevron-down"></i> Review</a>
+            <div class="custom-dropdown-menu">
+                <a href="#"><i class="fa fa-minus"></i> Proposal</a>
+                <a href="#"><i class="fa fa-minus"></i> Laporan Kemajuan</a>
+                <a class="custom-active" href="lihatlapakhir.html"><i class="fa fa-minus"></i> Laporan Akhir</a>
+            </div>
+        </div>
+    </aside>
+
+    <main class="custom-main-content">
+        <header class="custom-header">
+            <div class="custom-profile">
+                <span>Gumelar Akhirul Ramadhan (Reviewer) <i class="fa fa-envelope"></i><span class="custom-notification-dot"></span></span>
+                <div>Login Terakhir: 30 April 2025 WIB</div>
+            </div>
+        </header>
+            
+        <div class="custom-breadcrumb">Sistem Penelitian / Review - Laporan Akhir</div>
+
+
+        <div id="create-view" class="mt-4">
+            <div class="laporan-header">
+                <h3>Data Laporan Akhir ID : LPM/2025/0601</h3>
+            </div>
+
+            <div class="form-container">
+                <div class="form-box">
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <strong>Dokumen Lap. Akhir</strong><br>
+                            <a href="Test.pdf" download="LaporanAkhir.pdf">Unduh berkas Laporan Akhir</a>
+                        </div>
+                        <div id="status-revisi" class="mt-4">
+                        <div>
+                            <strong>Status Revisi:</strong>
+                            <p>Revisi Minor</p> <!-- Ganti dengan data dinamis dari backend -->
+                        </div>
+
+                <!-- Komentar (READ ONLY) -->
+                <div id="read-view" class="mt-4">
+                    <div class="laporan-header">
+                        <h3>Komentar</h3>
+                    </div>
+                    <div class="form-group">
+                        <div class="p-3 bg-light border rounded">
+                            Penelitian ini sudah dilaksanakan dengan baik. Laporan akhir disusun rapi, dan metodologi yang digunakan sesuai. Namun, perlu diperjelas lagi bagian evaluasi hasil pengujian aplikasi agar lebih informatif dan akurat.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-actions mt-3">
+                    <button id="kembali" class="btn-kembali">Kembali</button>
+                </div>
+
+ <script>
+        // Tunggu sampai halaman selesai dimuat
+        document.addEventListener("DOMContentLoaded", function () {
+
+            // Cari tombol dengan class .btn-kembali
+            const btnKembali = document.querySelector(".btn-kembali");
+
+            // Kalau tombolnya ketemu
+            if (btnKembali) {
+                // Pas tombol diklik
+                btnKembali.addEventListener("click", function (e) {
+                    e.preventDefault(); // Biar nggak jalanin fungsi bawaan
+                    window.history.back(); // Balik ke halaman sebelumnya
+                });
+            }
+        });
+
+        // Buka atau tutup menu dropdown "Review" pas diklik
+        document.querySelectorAll('.custom-dropdown-toggle').forEach((button) => {
+            button.addEventListener('click', function () {
+                const menu = this.nextElementSibling; // Ambil menu setelah tombol
+                // Kalau menu lagi ditampilin, sembunyiin. Kalau nggak, tampilin
+                menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+            });
+        });
+
+        // Tutup dropdown kalau klik di luar menu
+        window.addEventListener('click', function (e) {
+            document.querySelectorAll('.custom-dropdown-menu').forEach((menu) => {
+                // Kalau yang diklik bukan tombol dropdown atau isi menunya
+                if (!menu.previousElementSibling.contains(e.target) && !menu.contains(e.target)) {
+                    menu.style.display = 'none'; // Tutup menu
+                }
+            });
+        });
+</script>
+</body>
+</html>

@@ -1,0 +1,392 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f9f9f9;
+}
+   
+a {
+    text-decoration: none;
+}
+
+.custom-container {
+    display: flex;
+    height: 100vh;
+}
+
+.custom-image {
+    width: 100%; 
+    height: auto;
+    margin-bottom: 40px;
+}
+
+.custom-main-content {
+    flex: 1;
+    padding: 20px;
+    position: relative;
+    background-image: url('Backround.png');
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    background-size: 1500px auto; /* Sesuaikan ukuran */
+}
+
+.custom-sidebar {
+    width: 250px;
+    background-color: rgb(255, 255, 255);
+    padding: 20px 10px;
+    border-right: 1px solid #000000;
+    
+}
+
+.custom-logo {
+    font-weight: bold;
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 20px;
+    height: auto;
+    width: 230px;
+}
+
+.custom-btn {
+    display: block;
+    width: 100%;
+    padding: 5px;
+    background-color: white;
+    border: 3px solid #1988ff;
+    border-radius: 8px;
+    color: #1988ff;
+    font-weight: bold;
+    text-align: left;
+    margin: 5px 0;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.custom-dropdown {
+    width: 100%;
+}
+
+.custom-dropdown-toggle {
+    background-color: white;
+    border: 3px solid #1988ff;
+    border-radius: 8px;
+    color: #1988ff;
+    font-weight: bold;
+    width: 100%;
+    text-align: left;
+    margin: 5px 0;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.custom-dropdown-menu {
+    display: none;
+    margin-top: 5px;
+    margin-left: 15px; 
+}
+
+.custom-dropdown-menu a {
+    display: block;
+    padding: 5px 12px;
+    margin: 5px 12px;
+    color: #1988ff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 12px;
+    border: 3px solid #1988ff;
+    border-radius: 6px;
+}
+
+.custom-dropdown-menu a:hover {
+    background-color: #1988ff;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.custom-dropdown-menu i {
+    margin-right: 8px;
+    font-size: 1.2rem;
+    vertical-align: middle;
+    color: #000000;
+}
+
+.custom-btn i {
+    margin-right: 8px;
+    font-size: 1.2rem;
+    vertical-align: middle;
+    color: #000000;
+}
+
+.custom-btn.custom-active {
+    background-color: #1988ff;
+    color: white;
+}
+
+.custom-btn:hover {
+    background-color: #1988ff;
+    color: white;
+    margin-left: 8px;
+    transition: all 0.3s ease;
+}
+
+.custom-breadcrumb {
+    color: #1988ff;
+}
+
+.custom-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    margin-bottom: 20px;
+    background: white;
+    padding: 15px;
+    border-bottom: 1px solid #ccc;
+}
+
+.custom-profile {
+    text-align: right;
+    font-family: "Roboto", Helvetica;
+    font-weight: 500;
+    color: #000000;
+    font-size: 20px;
+    position: relative;
+    margin-left: auto;
+   
+    
+}
+
+.custom-profile span {
+    font-size: 24px;
+    font-weight: bold;
+    display: block;
+    
+}
+
+.custom-profile small {
+    color: #666;
+    font-size: 14px;
+    display: block;
+}
+
+.custom-mail-wrapper {
+    display: inline-block;
+    position: relative;
+    margin-top: 5px;
+    margin-left: 10px;
+    font-size: 28px;
+}
+
+.custom-notification-dot {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    width: 14px;
+    height: 14px;
+    background-color: red;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+.custom-welcome-box {
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #999;
+    border-radius: 5px;
+}
+
+.custom-welcome-box h2 {
+    margin-top: 0;
+}
+
+.custom-welcome-box a {
+    color: #1988ff;
+    text-decoration: none;
+}
+
+
+
+.cari{
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    flex-direction: row;
+    padding-bottom:  10px; ;
+    
+}
+
+.custom-border-lap-akhir thead,th{
+    background-color: rgb(224, 222, 222) !important;
+}
+
+
+/* Table Section */
+.laporan-header {
+    background-color: #D9D9D9;
+    padding: 4px 12px;              /* Lebih kecil dari sebelumnya */
+    border-radius: 8px 8px 0 0;
+    font-size: 13px;                /* Ukuran font dasar */
+}
+
+/* Tambahkan ini agar teks di dalam header jadi lebih kecil dan bold */
+.laporan-header h3 {
+    font-size: 14px;                /* Ukuran lebih kecil */
+    font-weight: bold;             /* Teks ditebalkan */
+    margin: 0;                     /* Hilangkan margin bawaan h3 */
+    padding: 4px 0;                /* Sedikit padding vertikal */
+}
+
+.btn-tambah {
+    background-color: #1988ff;
+    color: white;
+    border: none;
+    padding: 5px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-tambah:hover {
+    background-color: #1470d1;
+}
+
+.table-container {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.laporan-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.laporan-table th {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    background-color: #f2f2f2;
+}
+
+.laporan-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.no-data {
+    padding: 20px;
+    text-align: left;
+    color: #666;
+}
+
+/* Form Section */
+/* .form-box {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    border-top: none;
+} */
+
+.form-container {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+/* .form-control {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+} */
+
+.text-download {
+    color: #1988ff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.text-download:hover {
+    text-decoration: underline;
+}
+
+/* Form Buttons */
+/* .form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+} */
+
+
+.btn-download {
+    display: inline-block;
+    padding: 8px 15px;
+    background-color: #1988ff;
+    color: white !important;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.btn-download:hover {
+    background-color: #1470d1;
+}
+
+.btn-simpan {
+    padding: 8px 20px;
+    background-color: #107ACC;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-simpan:hover {
+    background-color: #1d67a0;
+}
+
+.btn-kembali {
+    padding: 8px 20px;
+    background-color: #747474;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-kembali:hover {
+    background-color: #ada8a8;
+}
+
+/* Error Message */
+.file-info {
+    display: block;
+    margin-top: 5px;
+    color: #666;
+    font-size: 12px;
+}
+
+#error-msg {
+    color: red;
+    display: none;
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+/* JavaScript Interactive Elements */

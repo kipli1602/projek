@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <link rel="icon" href="Logo Astra LapAkhir.png" type="image/png">
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+   <style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f9f9f9;
+}
+a {
+    text-decoration: none;
+}
+.custom-container {
+    display: flex;
+    height: 100vh;
+}
+.custom-image {
+    width: 100%;
+    height: auto;
+    margin-bottom: 40px;
+}
+.custom-main-content {
+    flex: 1;
+    padding: 20px;
+    position: relative;
+    background-image: url('Backround.png');
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    background-size: 1500px auto;
+}
+.custom-sidebar {
+    width: 250px;
+    background-color: white;
+    padding: 20px 10px;
+    border-right: 1px solid #000;
+}
+.custom-btn {
+    display: block;
+    width: 100%;
+    padding: 5px;
+    background-color: white;
+    border: 3px solid #1988ff;
+    border-radius: 8px;
+    color: #1988ff;
+    font-weight: bold;
+    text-align: left;
+    margin: 5px 0;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.custom-btn i {
+    margin-right: 8px;
+    font-size: 1.2rem;
+    vertical-align: middle;
+    color: #000;
+}
+.custom-btn:hover,
+.custom-btn.custom-active {
+    background-color: #1988ff;
+    color: white;
+}
+.custom-dropdown {
+    width: 100%;
+}
+.custom-dropdown-toggle {
+    background-color: white;
+    border: 3px solid #1988ff;
+    border-radius: 8px;
+    color: #1988ff;
+    font-weight: bold;
+    width: 100%;
+    text-align: left;
+    margin: 5px 0;
+    cursor: pointer;
+    padding: 5px;
+}
+.custom-dropdown-menu {
+    display: none;
+    margin-top: 5px;
+    margin-left: 15px;
+}
+.custom-dropdown-menu a {
+    display: block;
+    padding: 5px 12px;
+    margin: 5px 12px;
+    color: #1988ff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 12px;
+    border: 3px solid #1988ff;
+    border-radius: 6px;
+}
+.custom-dropdown-menu a:hover {
+    background-color: #1988ff;
+    color: white;
+    transition: all 0.3s ease;
+}
+.custom-dropdown-menu i {
+    margin-right: 8px;
+    font-size: 1.2rem;
+    vertical-align: middle;
+    color: #000;
+}
+.custom-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    margin-bottom: 20px;
+    background: white;
+    padding: 15px;
+    border-bottom: 1px solid #ccc;
+}
+.custom-profile {
+    text-align: right;
+    font-family: "Roboto", Helvetica;
+    font-weight: 500;
+    color: #000;
+    font-size: 20px;
+    margin-left: auto;
+}
+.custom-profile span {
+    font-size: 24px;
+    font-weight: bold;
+    display: block;
+}
+.custom-breadcrumb {
+    color: #1988ff;
+}
+.custom-notification-dot {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    width: 14px;
+    height: 14px;
+    background-color: red;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+.laporan-header {
+    background-color: #D9D9D9;
+    padding: 4px 12px;
+    border-radius: 8px 8px 0 0;
+    font-size: 13px;
+}
+.laporan-header h3 {
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0;
+    padding: 4px 0;
+}
+.form-container {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+}
+.form-group {
+    margin-bottom: 20px;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+.text-download {
+    color: #1988ff;
+    text-decoration: none;
+    font-weight: bold;
+}
+.text-download:hover {
+    text-decoration: underline;
+}
+.btn-kembali {
+    padding: 8px 20px;
+    background-color: #747474;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+.btn-kembali:hover {
+    background-color: #ada8a8;
+}
+</style>
+
+</head>
+<body>
+    <div class="custom-container">
+        <aside class="custom-sidebar">
+            <img class="custom-image" src="logo sidebar.png" />
+            <a class="custom-btn" href="#"><i class="fa fa-sign-out-alt"></i> Keluar</a>
+            <a class="custom-btn " href="peneliti.html"><i class="fa fa-home"></i> Dashboard</a>
+            <a class="custom-btn" href="1.html"><i class="fa fa-info-circle"></i> Informasi</a>
+            <a class="custom-btn" href="#"><i class="fa fa-file-alt"></i> Data Penelitian</a>
+            <div class="custom-dropdown">
+                <a class="custom-btn custom-dropdown-toggle"><i class="fa fa-chevron-down"></i> Proposal</a>
+                <div class="custom-dropdown-menu">
+                    <a href="#"><i class="fa fa-minus"></i> Ajukan Proposal</a>
+                    <a href="#"><i class="fa fa-minus"></i> Konfirmasi Proposal</a>
+                    <a href="#"><i class="fa fa-minus"></i> Daftar Proposal</a>
+                </div>
+            </div>
+            <a class="custom-btn" href="#"><i class="fa fa-book"></i> LogBook</a>
+            <a class="custom-btn" href="#"><i class="fa fa-chart-line"></i>Laporan Kemajuan</a>
+            <a class="custom-btn" href="#"><i class="fa fa-file-export"></i> Laporan Akhir</a>
+        </aside>
+
+        <main class="custom-main-content">
+            <header class="custom-header">
+                <div class="custom-profile">
+                    <span>Boy Wiliam (Peneliti)  <i class="fa fa-envelope"></i><span class="custom-notification-dot"></span></span>
+                </div>
+            </header>
+            
+            <div class="custom-breadcrumb" style="padding-bottom: 10px;">Sistem Penelitian / Dashboard</div>
+
+            <div id="create-view" class="mt-4">
+                <div class="laporan-header">
+                    <h3>Laporan Akhir</h3>
+                </div>
+
+                <div class="form-box">
+                    <div class="form-container">
+                        <div class="form-group mb-3">
+                            <label>Dokumen Laporan Akhir :</label>
+                            <a href="Test.pdf"  download class="text-download">
+                                <i class=""></i> Unduh Dokumen
+                            </a>
+                            <label class="mt-3">Komentar Admin :</label>
+                            <div class="form-control" style="width: 100%; height: 100px; overflow-y: scroll;">
+                                Laporan akhir sudah disusun dengan baik dan sistematis, mengikuti struktur penulisan ilmiah yang tepat. Setiap bab tersusun secara logis dan saling berkaitan, mulai dari pendahuluan hingga kesimpulan. Selain itu, data pendukung yang disajikan sangat lengkap, relevan dengan topik penelitian, dan mampu memperkuat argumen yang disampaikan. Penggunaan metode penelitian juga dijelaskan secara rinci dan tepat sasaran, menunjukkan bahwa proses penelitian dilakukan secara terencana dan bertanggung jawab. Secara keseluruhan, laporan ini mencerminkan pemahaman yang baik terhadap materi serta kemampuan analisis yang kuat                            
+                            </div>
+
+                           <div style="display: flex; gap: 20px;">
+                                <div style="display: flex; flex-direction: column; width: 50%;">
+                                    <label class="mt-3">Komentar Reviewer 1 :</label>
+                                    <div class="form-control" style=" height: 100px; overflow-y: scroll;">
+                                        Laporan akhir sudah disusun dengan baik dan sistematis, mengikuti struktur penulisan ilmiah yang tepat. Setiap bab tersusun secara logis dan saling berkaitan, mulai dari pendahuluan hingga kesimpulan. Selain itu, data pendukung yang disajikan sangat lengkap, relevan dengan topik penelitian, dan mampu memperkuat argumen yang disampaikan. Penggunaan metode penelitian juga dijelaskan secara rinci dan tepat sasaran, menunjukkan bahwa proses penelitian dilakukan secara terencana dan bertanggung jawab. Secara keseluruhan, laporan ini mencerminkan pemahaman yang baik terhadap materi serta kemampuan analisis yang kuat      
+                                    </div>
+                                </div>
+
+                                <div style="display: flex; flex-direction: column; width: 50%;">
+                                    <label class="mt-3">Komentar Reviewer 2 :</label>
+                                    <div class="form-control" style=" height: 100px; overflow-y: scroll;">
+                                        Laporan akhir sudah disusun dengan baik dan sistematis, mengikuti struktur penulisan ilmiah yang tepat. Setiap bab tersusun secara logis dan saling berkaitan, mulai dari pendahuluan hingga kesimpulan. Selain itu, data pendukung yang disajikan sangat lengkap, relevan dengan topik penelitian, dan mampu memperkuat argumen yang disampaikan. Penggunaan metode penelitian juga dijelaskan secara rinci dan tepat sasaran, menunjukkan bahwa proses penelitian dilakukan secara terencana dan bertanggung jawab. Secara keseluruhan, laporan ini mencerminkan pemahaman yang baik terhadap materi serta kemampuan analisis yang kuat      
+                                    </div>
+                                </div>
+                            </div>
+ 
+
+                        <div class="form-actions mt-3">
+                            <a href="tabel_lap_akhir_peneliti.html" id="kembali" class="btn-kembali">Kembali</a>
+                        </div>
+                    </div>    
+                </div>
+            </div>
+        </main>    
+    </div>
+
+
+</body>
+</html>

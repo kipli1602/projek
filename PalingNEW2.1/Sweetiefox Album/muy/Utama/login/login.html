@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login ASTRAtech</title>
+  <link rel="icon" href="logo astra.png" type="image/png">
+  <link rel="stylesheet" href="stylelogin.css" />
+</head>
+<body>
+  <div class="halaman-login">
+    <div class="login-box">
+      <img src="logo_astra.png" alt="ASTRAtech logo" class="logo" />
+      <form id="loginForm">
+        <input type="text" id="email" placeholder="Masukkan Email" />
+        <div class="password-wrapper">
+          <input type="password" id="password" placeholder="Masukkan Password" />
+          <img
+            id="togglePassword"
+            src="https://icon-library.com/images/eye-icon-png/eye-icon-png-5.jpg"
+            alt="Toggle Password"
+          />
+        </div>
+        <button type="submit">Masuk</button>
+        <div style="color: red;" class="error-message" id="errorMsg"></div>
+      </form>
+    </div>
+  </div>
+
+  <div id="roleModal" class="modal">
+    <div class="modal-content">
+      <h3>Pilih Peran Anda</h3>
+      <select id="roleDropdown">
+        <option value="">- Pilih Peran -</option>
+        <option value="admin">Admin</option>
+        <option value="reviewer">Reviewer</option>
+        <option value="peneliti">Peneliti</option>
+      </select>
+      <button id="confirmRole">Lanjut</button>
+    </div>
+  </div>
+
+  <script src="login.js"></script>
+</body>
+</html>
+
